@@ -10,7 +10,7 @@ play = [ 'stone', 'paper', 'scissors']
 
 # Assign a variable to the maximum number of games: 1, 3, 5, etc ...
 
-max_games = 3
+max_games = 6
 
 # Assign a variable to the number of games a player must win to win.
 # Preferably the value will be based on the number of maximum games
@@ -45,12 +45,13 @@ stone > scissors'''
 # machine and ask the player's. Compare them and update the value of the variables
 # that accumulate the wins of each participant.
 
-
+nb_of_game = 0
 machine_wins = 0
 human_wins = 0
 tie = 0
 
-while machine_wins <= max_to_win and human_wins <= max_to_win:
+while machine_wins <= max_to_win and human_wins <= max_to_win and nb_of_game <= max_games:
+    nb_of_game +=1
     machine_player = random.choice(play)
     human_player = str(input("Enter your choice (stone, paper or scissors): "))
     while human_player != str('stone') and human_player != str('paper') and human_player != str('scissors'):
