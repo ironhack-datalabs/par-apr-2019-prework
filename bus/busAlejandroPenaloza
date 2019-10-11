@@ -1,0 +1,28 @@
+stops = [(in1, out1), (in2, out2), (in3, out3), (in4, out4)]
+
+number_of_stops = len(stops)
+current_passengers = 0
+number_of_passengers = []
+for ind in range(len(stops)):
+    current_passengers += (stops[ind][0] - stops[ind][1]) 
+    number_of_passengers.append(current_passengers)
+
+passengers_at_every_stop = number_of_passengers
+
+#Maxmimum occupation
+print("Bus maximum occupation is ", max(passengers_at_every_stop), " passengers")
+
+#Average occupation
+average_occupation = sum(passengers_at_every_stop) / len(passengers_at_every_stop)
+print("Its average occupation is ", average_occupation)
+
+squared_deviation_list = []
+#Standard deviation
+for passenger in passengers_at_every_stop:
+    squared_deviation = (passenger - average_occupation)**2
+    squared_deviation_list.append(squared_deviation)
+
+import math
+variance = sum(squared_deviation_list) / len(squared_deviation_list)
+standard_deviation = math.sqrt(variance)
+print("Its standard deviation is ", standard_deviation)
