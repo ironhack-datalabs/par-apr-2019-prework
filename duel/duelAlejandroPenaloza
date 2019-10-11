@@ -1,0 +1,47 @@
+gandalf = [10, 11, 13, 30, 22, 11, 10, 33, 22, 22]
+saruman = [23, 66, 12, 43, 12, 10, 44, 23, 12, 17]
+gandalf_wins = 0
+saruman_wins = 0
+
+for time in range(len(gandalf)):
+    if gandalf[time] > saruman[time]:
+        gandalf_wins += 1
+    elif gandalf[time] < saruman[time]:
+        saruman_wins += 1
+
+if gandalf_wins > saruman_wins:
+    print("Gandalf wins")
+elif gandalf_wins < saruman_wins:
+    print("Saruman wins")
+else:
+    print("Tie")
+    
+POWER = {
+    'Fireball': 50, 
+    'Lightning bolt': 40, 
+    'Magic arrow': 10, 
+    'Black Tentacles': 25, 
+    'Contagion': 45
+}
+
+gandalf = ['Fireball', 'Lightning bolt', 'Lightning bolt', 'Magic arrow', 'Fireball', 'Magic arrow', 'Lightning bolt', 'Fireball', 'Fireball', 'Fireball']
+saruman = ['Contagion', 'Contagion', 'Black Tentacles', 'Fireball', 'Black Tentacles', 'Lightning bolt', 'Magic arrow', 'Contagion', 'Magic arrow', 'Magic arrow']
+G_wins_in_a_row = 0
+S_wins_in_a_row = 0
+
+for t in range(len(gandalf)):
+    if POWER[gandalf[t]] > POWER[saruman[t]]:
+        G_wins_in_a_row += 1
+        S_wins_in_a_row = 0
+    elif POWER[gandalf[t]] < POWER[saruman[t]]:
+        G_wins_in_a_row = 0
+        S_wins_in_a_row += 1
+    else:
+        G_wins_in_a_row = 0
+        S_wins_in_a_row = 0
+    if G_wins_in_a_row == 3:
+        print("Gandalf wins")
+        break
+    elif S_wins_in_a_row == 3:
+        print("Saruman wins")
+        break
